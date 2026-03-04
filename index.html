@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyadarshani · SDET & QA Engineer · Open to Work</title>
+<meta name="description" content="QA Engineer & SDET with 8+ years experience. Specializing in test automation, API testing, and quality-first Agile delivery. Open to full-time and lead roles.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f2ec;
+  --bg2: #ede9e0;
+  --ink: #1a1814;
+  --ink2: #4a4640;
+  --accent: #c94a1a;
+  --accent2: #1a6b4a;
+  --accent3: #1a3a6b;
+  --gold: #b8860b;
+  --card: #ffffff;
+  --border: rgba(26,24,20,0.1);
+  --border-strong: rgba(26,24,20,0.2);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Syne', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s;
+  mix-blend-mode: multiply;
+}
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s, width 0.2s, height 0.2s;
+  mix-blend-mode: multiply;
+}
+
+/* Noise texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 500;
+  background: rgba(245,242,236,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+nav .inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 40px;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.15rem;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.nav-badge {
+  background: var(--accent);
+  color: white;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  margin-left: 10px;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--ink2);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--ink) !important;
+  color: var(--bg) !important;
+  padding: 8px 16px !important;
+  font-size: 0.65rem !important;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--accent) !important; color: white !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  gap: 60px;
+  align-items: center;
+}
+.hero-left { padding: 80px 0; }
+
+.availability-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(26,107,74,0.08);
+  border: 1px solid rgba(26,107,74,0.25);
+  color: var(--accent2);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.1s;
+}
+.avail-dot {
+  width: 7px; height: 7px;
+  background: var(--accent2);
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.hero-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  line-height: 1.05;
+  margin-bottom: 12px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.25s;
+}
+.hero-name-line {
+  display: inline-block;
+  font-size: clamp(3.6rem, 7.5vw, 6.4rem);
+  font-weight: 800;
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--accent) 55%, #e07a3a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+.hero-name-line::after {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin-top: 4px;
+  border-radius: 2px;
+}
+.hero-sub-line {
+  font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+  color: var(--ink2);
+  font-style: normal;
+  font-family: 'Instrument Serif', serif;
+  line-height: 1.3;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
+}
+
+.hero-hook {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--accent2);
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--accent2);
+  background: rgba(26,107,74,0.05);
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.4s;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  line-height: 1.7;
+}
+.hook-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.hook-text { color: var(--ink2); }
+.hook-text strong { color: var(--ink); font-weight: 700; }
+.hook-accent {
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+  color: var(--accent);
+  font-family: 'Instrument Serif', serif;
+  font-size: 0.95rem;
+}
+
+.hero-bio {
+  font-size: 1rem;
+  color: var(--ink2);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.55s;
+}
+.hero-bio strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hero-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.65s;
+}
+.role-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.role-tag.red { background: rgba(201,74,26,0.1); color: var(--accent); border: 1px solid rgba(201,74,26,0.2); }
+.role-tag.green { background: rgba(26,107,74,0.1); color: var(--accent2); border: 1px solid rgba(26,107,74,0.2); }
+.role-tag.blue { background: rgba(26,58,107,0.1); color: var(--accent3); border: 1px solid rgba(26,58,107,0.2); }
+
+.hero-cta {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.75s;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+  cursor: none;
+  border: none;
+}
+.btn-primary { background: var(--ink); color: var(--bg); }
+.btn-primary:hover { background: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(201,74,26,0.25); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--border-strong); }
+.btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+
+/* Hero right — stats panel */
+.hero-right {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.5s;
+}
+.stats-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(26,24,20,0.08);
+}
+.stats-header {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 20px 28px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.stat-row {
+  display: flex;
+  align-items: center;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  gap: 20px;
+  transition: background 0.2s;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-row:hover { background: var(--bg); }
+.stat-big {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.4rem;
+  color: var(--accent);
+  line-height: 1;
+  min-width: 90px;
+}
+.stat-info-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.stat-info-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--ink2);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* SECTION STRUCTURE */
+.section { padding: 100px 0; }
+.section-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.section-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+.section-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 60px;
+  color: var(--ink);
+}
+.section-title em { font-style: italic; color: var(--accent); }
+
+/* DIVIDER */
+.divider { border: none; border-top: 1px solid var(--border); }
+
+/* VALUE PROP band */
+.value-band {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 60px 0;
+  overflow: hidden;
+}
+.value-band-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 40px;
+}
+.value-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-style: italic;
+  margin-bottom: 8px;
+  color: #f5f2ec;
+}
+.value-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(245,242,236,0.5);
+  letter-spacing: 0.1em;
+}
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(245,242,236,0.1);
+  margin-top: 48px;
+  border: 1px solid rgba(245,242,236,0.1);
+}
+.value-item {
+  background: var(--ink);
+  padding: 32px 28px;
+  transition: background 0.2s;
+}
+.value-item:hover { background: #2a2620; }
+.value-icon { font-size: 1.6rem; margin-bottom: 12px; }
+.value-item-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #f5f2ec;
+}
+.value-item-desc {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(245,242,236,0.5);
+  line-height: 1.6;
+}
+
+/* EXPERIENCE */
+.exp-grid { display: flex; flex-direction: column; gap: 0; }
+.exp-item {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  transition: background 0.2s;
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-item::before {
+  content: '';
+  position: absolute;
+  left: -40px; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.2s;
+}
+.exp-item:hover::before { background: var(--accent); }
+
+.exp-meta { padding-top: 4px; }
+.exp-period {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.exp-company {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.exp-location {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--ink2);
+}
+.exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.exp-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--ink2);
+  border: 1px solid var(--border-strong);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.exp-content-role {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 4px;
+  display: flex; align-items: center; gap: 10px;
+}
+.promoted-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(184,134,11,0.12);
+  color: var(--gold);
+  border: 1px solid rgba(184,134,11,0.3);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+.exp-content-desc {
+  font-size: 0.92rem;
+  color: var(--ink2);
+  line-height: 1.7;
+  margin: 12px 0 16px;
+  font-weight: 400;
+}
+.exp-achievements { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.exp-achievement {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.exp-achievement::before {
+  content: '→';
+  color: var(--accent);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.highlight-result {
+  background: rgba(201,74,26,0.08);
+  color: var(--accent);
+  font-weight: 600;
+  padding: 0 4px;
+  border-radius: 2px;
+}
+
+/* CASE STUDIES */
+.cases-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.case-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+.case-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,24,20,0.1); }
+.case-card:hover::before { transform: scaleX(1); }
+.case-card.green::before { background: var(--accent2); }
+.case-card.blue::before { background: var(--accent3); }
+.case-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.case-card.green .case-label { color: var(--accent2); }
+.case-card.blue .case-label { color: var(--accent3); }
+.case-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.case-step { display: flex; gap: 10px; margin-bottom: 10px; font-size: 0.85rem; }
+.case-step-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  min-width: 64px;
+  margin-top: 2px;
+}
+.case-card.green .case-step-label { color: var(--accent2); }
+.case-card.blue .case-step-label { color: var(--accent3); }
+.case-step-text { color: var(--ink2); line-height: 1.5; }
+.case-result {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(201,74,26,0.06);
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+.case-card.green .case-result { background: rgba(26,107,74,0.06); color: var(--accent2); }
+.case-card.blue .case-result { background: rgba(26,58,107,0.06); color: var(--accent3); }
+
+/* SKILLS */
+.skills-section { background: var(--bg2); }
+.skills-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.skill-category-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink2);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-strong);
+}
+.skill-list { display: flex; flex-direction: column; gap: 8px; }
+.skill-item {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.88rem;
+  color: var(--ink);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.skill-item:last-child { border-bottom: none; }
+.skill-level {
+  display: flex; gap: 4px;
+}
+.skill-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+.skill-dot.filled { background: var(--accent); }
+
+/* CERTIFICATIONS */
+.certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.cert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 20px 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+  transition: all 0.2s;
+}
+.cert-card:hover { border-color: var(--accent); transform: translateX(4px); }
+.cert-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.8rem;
+  color: rgba(26,24,20,0.1);
+  line-height: 1;
+  min-width: 36px;
+}
+.cert-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* EDUCATION */
+.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.edu-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.edu-card::after {
+  content: '🎓';
+  position: absolute;
+  bottom: 16px; right: 20px;
+  font-size: 3rem;
+  opacity: 0.06;
+}
+.edu-card:hover { border-color: var(--accent3); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(26,24,20,0.08); }
+.edu-degree {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+.edu-school { font-size: 0.85rem; font-weight: 600; color: var(--ink2); margin-bottom: 4px; }
+.edu-year {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent3);
+  letter-spacing: 0.1em;
+}
+
+/* CONTACT */
+.contact-section {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 100px 0;
+}
+.contact-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.contact-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.4);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.contact-label::before { content: ''; width: 24px; height: 1px; background: rgba(245,242,236,0.3); }
+.contact-headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.contact-headline em { font-style: italic; color: var(--accent); }
+.contact-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  color: rgba(245,242,236,0.5);
+  margin-bottom: 48px;
+  max-width: 480px;
+  line-height: 1.7;
+}
+.contact-links { display: flex; flex-direction: column; gap: 16px; }
+.contact-link {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 28px;
+  background: rgba(245,242,236,0.04);
+  border: 1px solid rgba(245,242,236,0.08);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--bg);
+  transition: all 0.2s;
+  max-width: 500px;
+}
+.contact-link:hover { background: rgba(245,242,236,0.08); border-color: rgba(245,242,236,0.2); transform: translateX(8px); }
+.contact-link-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(245,242,236,0.4);
+  margin-bottom: 4px;
+}
+.contact-link-value { font-size: 0.95rem; font-weight: 600; }
+.contact-arrow { font-size: 1.2rem; color: rgba(245,242,236,0.3); transition: color 0.2s; }
+.contact-link:hover .contact-arrow { color: var(--accent); }
+
+/* CTA Case Card */
+.cta-case-card {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  position: relative;
+  overflow: hidden;
+}
+.cta-case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(26,24,20,0.2) !important;
+}
+.cta-case-card::before {
+  background: var(--accent) !important;
+  transform: scaleX(1) !important;
+}
+.cta-case-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at bottom right, rgba(201,74,26,0.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-case-inner { position: relative; z-index: 1; }
+.cta-case-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.cta-case-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.45rem;
+  color: #f5f2ec;
+  line-height: 1.25;
+  margin-bottom: 22px;
+}
+.cta-case-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.cta-perk {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  color: rgba(245,242,236,0.6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+.cta-case-btn {
+  background: var(--accent) !important;
+  color: white !important;
+  font-size: 0.78rem !important;
+  padding: 12px 22px !important;
+}
+.cta-case-btn:hover {
+  background: #e05a20 !important;
+  box-shadow: 0 6px 20px rgba(201,74,26,0.4) !important;
+}
+footer {
+  background: #111009;
+  padding: 24px 40px;
+  max-width: 100%;
+}
+footer .inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+footer p {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(245,242,236,0.3);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; padding: 80px 24px 40px; gap: 40px; }
+  .hero-right { display: none; }
+  .section-inner { padding: 0 24px; }
+  .value-grid { grid-template-columns: 1fr; }
+  .exp-item { grid-template-columns: 1fr; gap: 8px; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .skills-categories { grid-template-columns: 1fr; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <div class="inner">
+    <div class="nav-logo">Fnu Priyadarshani <span class="nav-badge">Open to Work</span></div>
+    <div class="nav-links">
+      <a href="#experience">Experience</a>
+      <a href="#casestudies">Case Studies</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="/cdn-cgi/l/email-protection#790910110c570d180b0c391e14181015571a1614" class="nav-cta">Hire Me →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="background:var(--bg); padding-top:56px;">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="availability-pill">
+        <span class="avail-dot"></span>
+        Available · Remote / Hybrid / Open to Relocate
+      </div>
+      <h1 class="hero-headline">
+        <span class="hero-name-line">Priyadarshani</span><br>
+        <span class="hero-sub-line">QA Engineer who makes software <em>bulletproof.</em></span>
+      </h1>
+      <div class="hero-hook">
+        <span class="hook-icon">⚡</span>
+        <span class="hook-text">
+          I build <strong>CI/CD-integrated test automation</strong> pipelines that catch bugs before they ship —
+          reduced regression effort by <strong>40% at Bank of America</strong> using TOSCA &amp; Selenium.
+          <span class="hook-accent">Your next release deserves the same.</span>
+        </span>
+      </div>
+      <p class="hero-bio">
+        From Fortune 500 banking floors to fast-moving AI startups — I've spent <strong>8+ years making sure software doesn't break in production.</strong> I build automation frameworks, own API test coverage end-to-end, and lead QA teams that ship with confidence. Whether it's a Selenium suite, a CI/CD pipeline, or a zero-defect release — I've done it at scale.
+      </p>
+      <div class="hero-roles">
+        <span class="role-tag red">SDET / Automation</span>
+        <span class="role-tag green">QA Lead / Manager</span>
+        <span class="role-tag blue">Full-time QA Engineer</span>
+      </div>
+      <div class="hero-cta">
+        <a href="/cdn-cgi/l/email-protection#56263f3e23782237242316313b373f3a7835393b" class="btn btn-primary">✉ &nbsp;Let's Connect</a>
+        <a href="https://www.linkedin.com/in/fnupriyadarshani-86712028a" target="_blank" class="btn btn-outline">LinkedIn →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stats-panel">
+        <div class="stats-header">// Career Snapshot</div>
+        <div class="stat-row">
+          <div class="stat-big">8+</div>
+          <div>
+            <div class="stat-info-label">Years of QA Experience</div>
+            <div class="stat-info-sub">TCS → Startups → Chicago</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-big">40%</div>
+          <div>
+            <div class="stat-info-label">Effort Reduced via Automation</div>
+            <div class="stat-info-sub">TOSCA framework at Bank of America</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-big">3</div>
+          <div>
+            <div class="stat-info-label">Target Roles</div>
+            <div class="stat-info-sub">SDET · QA Lead · QA Engineer</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-big">5</div>
+          <div>
+            <div class="stat-info-label">Professional Certifications</div>
+            <div class="stat-info-sub">TOSCA · Agile · Banking · PM</div>
+          </div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-big">M.S.</div>
+          <div>
+            <div class="stat-info-label">Computer Science</div>
+            <div class="stat-info-sub">Illinois Institute of Technology '25</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE BAND -->
+<div class="value-band">
+  <div class="value-band-inner">
+    <div class="value-headline">Why hire a QA engineer with 8 years at a Fortune 500?</div>
+    <div class="value-sub">// Because real-world scale teaches what no bootcamp can</div>
+    <div class="value-grid">
+      <div class="value-item">
+        <div class="value-icon">⚙️</div>
+        <div class="value-item-title">Automation-First Mindset</div>
+        <div class="value-item-desc">Built TOSCA automation frameworks from scratch. I don't just run tests — I build infrastructure that scales with your product.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🔌</div>
+        <div class="value-item-title">Deep API Expertise</div>
+        <div class="value-item-desc">Postman, Swagger, SOAP UI, REST & backend validation. I catch what UI tests miss — before users ever see it.</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🚀</div>
+        <div class="value-item-title">Startup-to-Enterprise Range</div>
+        <div class="value-item-desc">From Bank of America's regulated banking systems to AI fashion-tech startups — I adapt fast and deliver quality in any environment.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-inner">
+    <div class="section-eyebrow">02 — Experience</div>
+    <h2 class="section-title">Where I've delivered <em>quality.</em></h2>
+
+    <div class="exp-grid">
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Aug 2025 – Present</div>
+          <div class="exp-company">Vosyn</div>
+          <div class="exp-location">Chicago, IL</div>
+          <div class="exp-tags">
+            <span class="exp-tag">Selenium</span>
+            <span class="exp-tag">Python/POM</span>
+            <span class="exp-tag">Postman</span>
+            <span class="exp-tag">Docker</span>
+            <span class="exp-tag">GCP</span>
+          </div>
+        </div>
+        <div>
+          <div class="exp-content-role">QA Specialist</div>
+          <div class="exp-content-desc">Leading frontend UI and backend testing at an AI-driven media tech company. Working across the full QA stack — from API validation to automation scripting.</div>
+          <ul class="exp-achievements">
+            <li class="exp-achievement">Designing and executing comprehensive test plans and <span class="highlight-result">automated regression cycles</span> using Page Object Model (POM)</li>
+            <li class="exp-achievement">Developing automated test suites using <span class="highlight-result">Selenium & Python</span> with OOP principles, reducing manual testing effort significantly</li>
+            <li class="exp-achievement">Driving frontend UI + backend testing pipeline using Postman, Docker & VS Code</li>
+            <li class="exp-achievement">Leveraging <span class="highlight-result">GCP</span> for AI-driven audio/video translation testing — validating multi-language output quality</li>
+            <li class="exp-achievement">Mentoring and guiding <span class="highlight-result">7–8 team members</span> on QA best practices, test design, and Agile workflows</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Jul – Dec 2025</div>
+          <div class="exp-company">fAIshion</div>
+          <div class="exp-location">San Francisco, CA</div>
+          <div class="exp-tags">
+            <span class="exp-tag">Postman</span>
+            <span class="exp-tag">MongoDB</span>
+            <span class="exp-tag">Jira</span>
+            <span class="exp-tag">Mobile</span>
+          </div>
+        </div>
+        <div>
+          <div class="exp-content-role">QA Lead <span class="promoted-badge">⭐ Promoted in 2 months</span></div>
+          <div class="exp-content-desc">Joined as QA Intern and was promoted to QA Lead within 2 months at this AI-powered fashion-tech startup based on performance and ownership.</div>
+          <ul class="exp-achievements">
+            <li class="exp-achievement">Owned <span class="highlight-result">end-to-end QA lifecycle</span> for 7 major features including Virtual Try-On, AI Size Recommendation, and Chatbot</li>
+            <li class="exp-achievement">Led web, mobile, staging, and nano API testing — catching critical bugs before production</li>
+            <li class="exp-achievement">Validated backend data using MongoDB and managed defects in Jira across full dev cycles</li>
+            <li class="exp-achievement">Created QA reference documentation in Lark, <span class="highlight-result">streamlining onboarding</span> for future QA members</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Mar 2019 – Mar 2022</div>
+          <div class="exp-company">TCS · Bank of America</div>
+          <div class="exp-location">Hyderabad, India</div>
+          <div class="exp-tags">
+            <span class="exp-tag">QTest</span>
+            <span class="exp-tag">JIRA</span>
+            <span class="exp-tag">E2E</span>
+            <span class="exp-tag">Agile</span>
+          </div>
+        </div>
+        <div>
+          <div class="exp-content-role">Test Engineer</div>
+          <div class="exp-content-desc">Ensured quality across banking web and API systems at one of the world's largest financial institutions with monthly release cycles.</div>
+          <ul class="exp-achievements">
+            <li class="exp-achievement">Designed and executed test cases for Web/API using QTest and JIRA across monthly releases</li>
+            <li class="exp-achievement">Conducted <span class="highlight-result">E2E and regression testing</span> ensuring zero critical defect escapes post-release</li>
+            <li class="exp-achievement">Coordinated across onshore-offshore Agile teams for requirement gathering and test sign-off</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Nov 2016 – Aug 2019</div>
+          <div class="exp-company">TCS · Bank of America</div>
+          <div class="exp-location">Hyderabad, India</div>
+          <div class="exp-tags">
+            <span class="exp-tag">TOSCA</span>
+            <span class="exp-tag">HP ALM</span>
+            <span class="exp-tag">ISO 9001</span>
+          </div>
+        </div>
+        <div>
+          <div class="exp-content-role">QA Test Lead</div>
+          <div class="exp-content-desc">Led QA strategy and automation across Agile sprints for a Fortune 500 banking client, mentoring junior testers while building scalable automation infrastructure.</div>
+          <ul class="exp-achievements">
+            <li class="exp-achievement">Built TOSCA automation framework from scratch — <span class="highlight-result">reduced testing effort by 40%</span> and accelerated release cycles</li>
+            <li class="exp-achievement">Led QA efforts across Agile sprints using HP ALM and QTest, managing test strategy end-to-end</li>
+            <li class="exp-achievement">Mentored <span class="highlight-result">4–5 junior testers</span> in best practices and ensured <span class="highlight-result">ISO 9001 compliance</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-period">Mar 2014 – Oct 2016</div>
+          <div class="exp-company">TCS · Dubai Telecom</div>
+          <div class="exp-location">Hyderabad, India</div>
+          <div class="exp-tags">
+            <span class="exp-tag">Mobile Testing</span>
+            <span class="exp-tag">SIT/UAT</span>
+            <span class="exp-tag">Defect Mgmt</span>
+          </div>
+        </div>
+        <div>
+          <div class="exp-content-role">Software QA Tester</div>
+          <div class="exp-content-desc">Delivered mobile and regression testing for a major telecom client across full SIT/UAT environments, supporting large-scale data conversion projects.</div>
+          <ul class="exp-achievements">
+            <li class="exp-achievement">Performed <span class="highlight-result">mobile and regression testing</span> across SIT/UAT — validating feature stability at telecom scale</li>
+            <li class="exp-achievement">Logged, tracked, and resolved defects in close collaboration with development teams</li>
+            <li class="exp-achievement">Supported critical data conversion projects ensuring data integrity through migration phases</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CASE STUDIES -->
+<section class="section" id="casestudies" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-eyebrow">03 — Case Studies</div>
+    <h2 class="section-title">Real problems. <em>Real results.</em></h2>
+    <div class="cases-grid">
+
+      <div class="case-card">
+        <div class="case-label">Case Study 01 · Automation</div>
+        <div class="case-title">Building a 40% Faster Testing Pipeline at Bank of America</div>
+        <div class="case-step">
+          <div class="case-step-label">Problem</div>
+          <div class="case-step-text">Regression testing was entirely manual, causing slow release cycles and inconsistent test coverage across Agile sprints at a Fortune 500 bank.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-label">Action</div>
+          <div class="case-step-text">Designed and built a TOSCA-based automation framework from the ground up, covering critical banking workflows and integrating with HP ALM for reporting.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-label">Result</div>
+          <div class="case-step-text">Reduced manual testing effort by 40%, freeing the team for exploratory testing and accelerating sprint delivery.</div>
+        </div>
+        <div class="case-result">⚡ 40% reduction in testing effort · Faster release cycles · ISO 9001 compliant</div>
+      </div>
+
+      <div class="case-card green">
+        <div class="case-label">Case Study 02 · Leadership</div>
+        <div class="case-title">From QA Intern to QA Lead in 60 Days at fAIshion</div>
+        <div class="case-step">
+          <div class="case-step-label">Problem</div>
+          <div class="case-step-text">A fast-moving AI startup had no established QA processes — features were shipping with inconsistent testing coverage and no documentation.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-label">Action</div>
+          <div class="case-step-text">Took full ownership of QA lifecycle for 7 product features, introduced structured testing using Jira and Postman, and built onboarding docs in Lark for the QA function.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-label">Result</div>
+          <div class="case-step-text">Promoted to QA Lead within 2 months. Established QA processes that scaled with the team and improved consistency across web, mobile, and API layers.</div>
+        </div>
+        <div class="case-result">⭐ Promoted in 2 months · QA docs adopted team-wide · 7 features shipped</div>
+      </div>
+
+      <div class="case-card blue">
+        <div class="case-label">Case Study 03 · API Testing</div>
+        <div class="case-title">AI-Powered Fashion Feature Validation with Postman + MongoDB</div>
+        <div class="case-step">
+          <div class="case-step-label">Problem</div>
+          <div class="case-step-text">Virtual Try-On and AI Size Recommendation features had complex backend logic. UI testing alone couldn't catch data mismatches or API response errors.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-label">Action</div>
+          <div class="case-step-text">Conducted dedicated API testing using Postman for every endpoint, and cross-validated backend data directly in MongoDB to ensure AI recommendation accuracy.</div>
+        </div>
+        <div class="case-step">
+          <div class="case-step-label">Result</div>
+          <div class="case-step-text">Caught critical backend defects that UI testing missed, preventing flawed AI recommendations from reaching production users.</div>
+        </div>
+        <div class="case-result">🔌 API + DB layer validated · Critical bugs caught pre-prod · Better UX outcomes</div>
+      </div>
+
+      <div class="case-card cta-case-card">
+        <div class="cta-case-bg"></div>
+        <div class="cta-case-inner">
+          <div class="cta-case-eyebrow">// More Impact Stories</div>
+          <div class="cta-case-title">Curious to know more?<br>There's plenty more to uncover.</div>
+          <div class="cta-case-perks">
+            <div class="cta-perk">🧪 How I reduced UAT cycles at telecom scale</div>
+            <div class="cta-perk">🤝 How I onboarded & mentored 12+ QA engineers</div>
+            <div class="cta-perk">🚀 How I led QA from day one at an AI startup</div>
+          </div>
+          <a href="/cdn-cgi/l/email-protection#582831302d762c392a2d183f35393134763b3735" class="btn btn-primary cta-case-btn">Let's Connect →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section class="section skills-section" id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow">04 — Skills & Tools</div>
+    <h2 class="section-title">The full <em>toolkit.</em></h2>
+    <div class="skills-categories">
+      <div>
+        <div class="skill-category-title">// Test Automation</div>
+        <div class="skill-list">
+          <div class="skill-item">TOSCA <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span></div></div>
+          <div class="skill-item">Postman <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span></div></div>
+          <div class="skill-item">PyCharm / Python <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span><span class="skill-dot"></span></div></div>
+          <div class="skill-item">Swagger / SOAP UI <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span></div></div>
+          <div class="skill-item">Docker <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span><span class="skill-dot"></span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-category-title">// Test Management</div>
+        <div class="skill-list">
+          <div class="skill-item">JIRA <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span></div></div>
+          <div class="skill-item">HP ALM <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span></div></div>
+          <div class="skill-item">QTest <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span></div></div>
+          <div class="skill-item">GitHub <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span><span class="skill-dot"></span></div></div>
+          <div class="skill-item">Agile / Scrum <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-category-title">// Testing Types</div>
+        <div class="skill-list">
+          <div class="skill-item">API / Backend Testing <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span></div></div>
+          <div class="skill-item">E2E / Regression <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span></div></div>
+          <div class="skill-item">Mobile Testing <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span></div></div>
+          <div class="skill-item">UAT / Functional <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span></div></div>
+          <div class="skill-item">SQL / MongoDB <div class="skill-level"><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot filled"></span><span class="skill-dot"></span><span class="skill-dot"></span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-eyebrow">05 — Certifications</div>
+    <h2 class="section-title">Certified <em>& recognized.</em></h2>
+    <div class="certs-grid">
+      <div class="cert-card"><div class="cert-num">01</div><div class="cert-name">Tricentis TOSCA Certified Professional</div></div>
+      <div class="cert-card"><div class="cert-num">02</div><div class="cert-name">BDA: Foundation Certificate in Banking</div></div>
+      <div class="cert-card"><div class="cert-num">03</div><div class="cert-name">Agile Way of Working — Foundation</div></div>
+      <div class="cert-card"><div class="cert-num">04</div><div class="cert-name">Project Management Foundations</div></div>
+      <div class="cert-card"><div class="cert-num">05</div><div class="cert-name">ASCENT — Foundation for Leadership Journey</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- EDUCATION -->
+<section class="section" style="background:var(--bg2);">
+  <div class="section-inner">
+    <div class="section-eyebrow">06 — Education</div>
+    <h2 class="section-title">Built on a strong <em>foundation.</em></h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-degree">Master of Science in Computer Science</div>
+        <div class="edu-school">Illinois Institute of Technology · Chicago, IL</div>
+        <div class="edu-year">2023 – 2025</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-degree">Bachelor of Science in Computer Science</div>
+        <div class="edu-school">Bengal College of Engineering and Technology</div>
+        <div class="edu-year">2010 – 2013</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-label">07 — Let's Connect</div>
+    <h2 class="contact-headline">
+      Looking for a QA engineer<br>who <em>ships quality?</em>
+    </h2>
+    <p class="contact-sub">
+      Currently open to full-time QA Engineer, SDET, and QA Lead roles — remote, hybrid, or on-site anywhere. Let's talk about how I can raise the quality bar on your team.
+    </p>
+    <div class="contact-links">
+      <a href="/cdn-cgi/l/email-protection#21514849540f5540535461464c40484d0f424e4c" class="contact-link">
+        <div>
+          <div class="contact-link-label">Email</div>
+          <div class="contact-link-value"><span class="__cf_email__" data-cfemail="cabaa3a2bfe4beabb8bf8aada7aba3a6e4a9a5a7">[email&#160;protected]</span></div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+      <a href="https://www.linkedin.com/in/fnupriyadarshani-86712028a" target="_blank" class="contact-link">
+        <div>
+          <div class="contact-link-label">LinkedIn</div>
+          <div class="contact-link-value">linkedin.com/in/fnupriyadarshani-86712028a</div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="inner">
+    <p>© 2025 Fnu Priyadarshani · QA Engineer · Chicago, IL</p>
+    <p>SDET · QA Lead · Automation Engineer · Open to Work</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 5 + 'px';
+  cursor.style.top = my - 5 + 'px';
+});
+
+function animateRing() {
+  rx += (mx - rx - 18) * 0.12;
+  ry += (my - ry - 18) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'scale(2)';
+    ring.style.width = '60px'; ring.style.height = '60px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'scale(1)';
+    ring.style.width = '36px'; ring.style.height = 
